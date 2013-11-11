@@ -1,0 +1,166 @@
+<!DOCTYPE html />
+<html>
+<head>
+<title>Demo :: UMsimpleCharts</title>
+    <meta http-Equiv="Cache-Control" Content="no-cache">
+    <meta http-Equiv="Pragma" Content="no-cache">
+    <meta http-Equiv="Expires" Content="0">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="demo/styles/default.css">
+<script src="demo/highlight.pack.js"></script>
+<script type="text/javascript" src="src/jquery.UMsimpleCharts.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="demo/demo.css" />
+<script>
+$('document').ready(function() {
+    // initialize codehighlighting
+    hljs.initHighlightingOnLoad();
+
+    // initialize UMsimpleCharts
+    var chart1 = $('#chart1').UMsimpleCharts({values: [['JavaScript', 80, '#FEC501'], ['PHP', 20, '#0233F9']]});
+    var chart2 = $('#chart2').UMsimpleCharts({size: 130, values: [
+               ['JavaScript', 60, '#FEC501'],
+               ['PHP', 30, '#0233F9'],
+               ['Python', 10, '#BE01BE']
+      ]
+    });
+    var chart3 = $('#chart3').UMsimpleCharts({ type: 'bars', size: '200', values: [
+               ['JavaScript', 60, '#FEC501'],
+               ['C++', 40, '#008000']
+               ]
+    });
+    var chart4 = $('#chart4').UMsimpleCharts({size: 200, type: 'pie', legend: false, values: [
+                 ['JavaScript', 60, '#FEC501'],
+                 ['PHP', 30, '#0233F9'],
+                 ['Python', 10, '#BE01BE']
+               ]
+    });
+
+});
+</script>
+</head>
+
+<body>
+<h1>UMroundsimpleCharts [JQuery Plugin] - DEMO</h1>
+
+ <article>
+<h2>Usage</h2>
+Make shure you have embedded <b>jquery.js</b> and <b>jquery.UMsimpleCharts.js</b>
+ <pre>
+      <code>
+&lt;!DOCTYPE html/&gt;
+&lt;html&gt;
+ &lt;head&gt;
+       &lt;title&gt;your title&lt;/title&gt;
+       &lt;script type="text/javascript" src="src/jquery.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript" src="src/jquery.UMsimpleCharts.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+     </code>
+</pre>
+Then you should instance the UMsimpleChart like in the examples below:
+ <pre>
+      <code>
+&lt;!DOCTYPE html/&gt;
+&lt;html&gt;
+ &lt;head&gt;
+       &lt;title&gt;your title&lt;/title&gt;
+       &lt;script type="text/javascript" src="src/jquery.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript" src="src/jquery.UMsimpleCharts.min.js"&gt;&lt;/script&gt;
+       &lt;script type="text/javascript"&gt;
+           $('document')ready(function() {
+               var progress = $('#idOfDestination').UMsimpleCharts({options});
+           });
+       &lt;/script&gt;
+&lt;/head&gt;
+     </code>
+</pre>
+<h2>Options</h2>
+ <ul>
+     <li><b>backgroundColor</b> (hexcode) - The desired backgroundcolor of a pie-chart <i>(i.e. '#C7C7C7')</i></li>
+     <li><b>size</b> (pixels) - The destination size of the whole chart. Does not include the legend</li>
+     <li><b>type</b> (string) - Defines the type of the chart. Should be <i>'pie'</i> or <i>'bars'</i></li>
+     <li><b>legend</b> (boolean) - Defines if a legend will be displayed. Could be <i>'true'</i> or <i>'false'</i></li>
+     <li><b>values</b> (array of arrays) - The data you would like to be displayed as a chart. Defined in the following
+     format: <pre><code>[['label', percentage, 'color']] // label will be [string], percentage will be [float] between 0 and 100, color will be [hex]</code></pre></li>
+</ul>
+</article>
+
+ <table rules='all'>
+        <tr>
+            <td>Output</td>
+            <td>Code</td>
+       </tr>
+        <tr>
+            <td><div id='chart1'></div></td>
+             <td>
+                 <h3>simple initialization with no options but values given</h3>
+                 <pre>
+                      <code>
+  var chart1 = $('#chart1').UMsimpleCharts({values: [['JavaScript', 80, '#FEC501'], ['PHP', 20, '#0233F9']]});
+      // default type is 'pie'
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr style='background: #DFFFBF;'>
+            <td><div id='chart2'></div></td>
+             <td>
+                 <h3>initialization with size</h3>
+                 <pre>
+                      <code>
+  var chart2 = $('#chart2').UMsimpleCharts({size: 130, values: [
+               ['JavaScript', 60, '#FEC501'],
+               ['PHP', 30, '#0233F9'],
+               ['Python', 10, '#BE01BE']
+  ]
+  });
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr>
+            <td><div id='chart3'></div></td>
+             <td>
+                 <h3>initialization as bar-chart</h3>
+                 <pre>
+                      <code>
+  var chart3 = $('#chart3').UMsimpleCharts({ type: 'bars', size: '200', values: [
+               ['JavaScript', 60, '#FEC501'],
+               ['C++', 40, '#008000']
+             ]
+  });
+                     </code>
+                </pre>
+            </td>
+       </tr>
+        <tr style='background: #DFFFBF;'>
+            <td><div id='chart4'></div></td>
+             <td>
+                 <h3>initialization as pie-chart without legend</h3>
+                 <pre>
+                      <code>
+  var chart4 = $('#chart4').UMsimpleCharts({size: 200, type: 'pie', legend: false, values: [
+               ['JavaScript', 60, '#FEC501'],
+               ['PHP', 30, '#0233F9'],
+               ['Python', 10, '#BE01BE']
+  ]
+  });
+                     </code>
+                </pre>
+            </td>
+       </tr>
+</table>
+
+
+ <article>
+ <p style='margin-top: 50px;'>
+    <h2>Discuss, ask and download on GitHub: </h2>
+    <a href='https://github.com/miko007/UMsimpleCharts' target='_parent'><h3>https://github.com/miko007/UMsimpleCharts</h3></a>
+</p>
+ <p>
+    <sub>&copy; 2013, MikO (Michael Ochmann)</sub>
+</p>
+</article>
+</body>
+</html>
